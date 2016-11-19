@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2yL-58-8jl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qWw-Ck-mJb">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -34,17 +34,20 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qWw-Ck-mJb" secondAttribute="bottom" id="yMF-6p-8sa"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oY7-b6-b83"/>
                     <connections>
                         <outlet property="motableview" destination="qWw-Ck-mJb" id="f1R-Bq-3RO"/>
+                        <segue destination="WwN-Is-DsX" kind="show" identifier="moveSegue" id="d1V-cr-Lz9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1055.2" y="37.331334332833585"/>
         </scene>
-        <!--View Controller-->
+        <!--Definition View Controller-->
         <scene sceneID="EFP-9W-BJO">
             <objects>
-                <viewController id="WwN-Is-DsX" sceneMemberID="viewController">
+                <viewController id="WwN-Is-DsX" customClass="DefinitionViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WV2-xQ-rJ9"/>
                         <viewControllerLayoutGuide type="bottom" id="Gps-A3-b10"/>
@@ -54,13 +57,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dui-lx-uFN">
-                                <rect key="frame" x="78.5" y="60" width="218" height="269"/>
+                                <rect key="frame" x="78.5" y="104" width="218" height="269"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="200"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a lovely church." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIX-nj-tlm">
-                                <rect key="frame" x="101" y="349" width="173" height="21"/>
+                                <rect key="frame" x="101" y="393" width="173" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -72,13 +75,36 @@
                             <constraint firstItem="oIX-nj-tlm" firstAttribute="top" secondItem="WV2-xQ-rJ9" secondAttribute="bottom" constant="329" id="FcY-uF-uW6"/>
                             <constraint firstItem="oIX-nj-tlm" firstAttribute="centerX" secondItem="jag-Qa-l2B" secondAttribute="centerX" id="Lgi-ge-JjI"/>
                             <constraint firstItem="oIX-nj-tlm" firstAttribute="top" secondItem="Dui-lx-uFN" secondAttribute="bottom" constant="20" id="OhQ-p6-uEd"/>
+                            <constraint firstItem="oIX-nj-tlm" firstAttribute="centerX" secondItem="jag-Qa-l2B" secondAttribute="centerX" id="jGY-sY-keq"/>
                             <constraint firstItem="Dui-lx-uFN" firstAttribute="top" secondItem="WV2-xQ-rJ9" secondAttribute="bottom" constant="40" id="z7i-ya-RKe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="definitionLabel" destination="oIX-nj-tlm" id="FaN-iJ-Ocw"/>
+                        <outlet property="emojiLabel" destination="Dui-lx-uFN" id="Km3-Cg-gs7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6i-hh-F0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901" y="142"/>
+            <point key="canvasLocation" x="1930" y="36"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4kp-aV-76s">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2yL-58-8jl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oeu-Ul-xOw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ye5-jf-svj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zFl-mN-QRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-164" y="37"/>
         </scene>
     </scenes>
 </document>
