@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var motableview: UITableView!
     
-    var emojis = ["😎","😀","💩","😨","👠","🐻"]
+    var emojis : [Emoji] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         motableview.dataSource = self
         motableview.delegate = self
+        emojis = makeEmojiArray()
         
     }
     
@@ -30,7 +31,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
         let cell = UITableViewCell()
-        cell.textLabel?.text = emojis[indexPath.row]
+        let emoji = emojis[indexPath.row]
+        cell.textLabel?.text = emoji.stringEmoji
         return cell
     }
 
@@ -42,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        let defVC = segue.destination as! DefinitionViewController
-        defVC.emoji = sender as! String
+        defVC.emoji = sender as! Emoji
             }
     
     override func didReceiveMemoryWarning() {
@@ -51,5 +53,45 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
 
+    func makeEmojiArray() -> [Emoji] {
+        let emoji1 = Emoji()
+        emoji1.stringEmoji = "😎"
+        emoji1.birthdate = 2009
+        emoji1.category = "Smiley"
+        emoji1.definition = "Cool Smiley Guy"
+        
+        let emoji2 = Emoji()
+        emoji2.stringEmoji = "😀"
+        emoji2.birthdate = 2009
+        emoji2.category = "Smiley"
+        emoji2.definition = "Happy Smiley Guy"
+        
+        let emoji3 = Emoji()
+        emoji3.stringEmoji = "💩"
+        emoji3.birthdate = 2009
+        emoji3.category = "Pooh"
+        emoji3.definition = "Piece of Pooh"
+        
+        let emoji4 = Emoji()
+        emoji4.stringEmoji = "😨"
+        emoji4.birthdate = 2009
+        emoji4.category = "Smiley"
+        emoji4.definition = "Worried Smiley Guy"
+        
+        let emoji5 = Emoji()
+        emoji5.stringEmoji = "👠"
+        emoji5.birthdate = 2009
+        emoji5.category = "Shoes"
+        emoji5.definition = "Sparkling Red Shoe"
+        
+        let emoji6 = Emoji()
+        emoji6.stringEmoji = "🐻"
+        emoji6.birthdate = 2009
+        emoji6.category = "Animal"
+        emoji6.definition = "Happy Hamster"
+        
+        return [emoji1, emoji2, emoji3, emoji4, emoji5, emoji6]
+    }
+    
 }
 
